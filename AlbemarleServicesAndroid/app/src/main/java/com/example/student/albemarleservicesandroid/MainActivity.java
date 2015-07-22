@@ -6,10 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 /*
-This will be a java version of the c# Albemarle County Sercvices Android App.
+Converting c# version of the Albemarle Services app to java.
  */
-
-
 public class MainActivity extends ActionBarActivity {
 
     @Override
