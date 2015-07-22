@@ -16,14 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ReportActivity"
-            android:label="Complaints and Concerns" >
-        </activity>
-        <activity
-            android:name=".ContactActivity"
-            android:label="Contact Us" >
-        </activity>
     </application>
 
 </manifest>
