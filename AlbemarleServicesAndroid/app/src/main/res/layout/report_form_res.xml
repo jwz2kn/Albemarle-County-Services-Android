@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <!-- This is the field for the type of problem user encounters -->
+        <!--    <TextView
+                android:text="Type Of Problem"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/probTypeTitle" /> -->
+        <!--    <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:maxLength="50"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:id="@+id/probTypeField"
+                android:hint="Enter a problem here..." /> -->
+        <!-- Look in the Resources, Values, then Strings.xml for specific info
+                on what the selection types are for the dropdown menu -->
+        <TextView
+            android:text="Problem Type"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/probTypeTitle" />
+        <Spinner
+            android:id="@+id/probTypeField"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/problem_prompt"
+            android:spinnerMode="dropdown" />
+        <!-- This is the field for the location of that problem -->
+        <TextView
+            android:text="Location"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/locTitle" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:maxLength="150"
+            android:imeOptions="actionNext"
+            android:id="@+id/locField"
+            android:hint="Enter a location here..." />
+        <!-- This is the field for a description of that problem -->
+        <TextView
+            android:text="Problem Description"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/probDescTitle" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:id="@+id/probDescField"
+            android:hint="Describe your problem here..."
+            android:maxLines="12"
+            android:maxLength="300"
+            android:scrollHorizontally="false" />
+        <!-- This is the field for user email address -->
+        <TextView
+            android:text="Email"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailTitle" />
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:imeOptions="actionNext"
+            android:id="@+id/emailField"
+            android:hint="Enter an email address here..." />
+        <!-- This is the field for user phone number -->
+        <TextView
+            android:text="Phone Number"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/phoneTitle" />
+        <EditText
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:id="@+id/phoneField"
+            android:hint="Enter a phone number here..." />
+        <!-- This is the field for uploading a photo of that problem -->
+        <Button
+            android:text="Upload a Photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:id="@+id/photoTitle" />
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:imeOptions="actionDone"
+            android:id="@+id/photoField"
+            android:hint="Upload a photo here..." />
+        <!-- This is the button for submitting all the information -->
+        <Button
+            android:text="Submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit" />
+    </LinearLayout>
+</ScrollView>
