@@ -13,7 +13,7 @@ import android.widget.Button;
 Converting c# version of the Albemarle Services app to java.
  */
 public class MainActivity extends ActionBarActivity {
-
+    protected Button report, zoning, law, certificate, contact;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +21,17 @@ public class MainActivity extends ActionBarActivity {
 
         // Get our buttons from the layout resource, the axml, in which we set their Android layout IDs
         // Each button declaration followed by its own onclicklistener to tell it what to do
-        Button report = (Button) findViewById(R.id.report);
+        report = (Button) findViewById(R.id.report);
+        zoning = (Button) findViewById(R.id.zoning);
+        law = (Button) findViewById(R.id.law);
+        certificate = (Button) findViewById(R.id.certificate);
+        contact = (Button) findViewById(R.id.contact);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         report.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action specified in ReportActivity
@@ -30,30 +40,33 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        Button zoning = (Button) findViewById(R.id.zoning);
         zoning.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
             }
         });
 
-        Button plants = (Button) findViewById(R.id.plants);
-        plants.setOnClickListener(new View.OnClickListener() {
+        law.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
+                String url = "https://www.albemarle.org/policeonlinereporting/";
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                ReportFormActivity.setProblemTypePosition(3);
+                Intent j = new Intent(MainActivity.this, ReportFormActivity.class);
+                startActivity(i);
+                //startActivity(j);
             }
         });
 
-        Button certificate = (Button) findViewById(R.id.certificate);
         certificate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click, take to website
-                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(
-                        "http://www.vdh.virginia.gov/Vital_Records/"));
+                String url = "http://www.vdh.virginia.gov/Vital_Records/";
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(i);
             }
         });
-        Button contact = (Button) findViewById(R.id.contact);
+
         contact.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action specified in ContactActivity

@@ -13,7 +13,7 @@ import android.widget.Button;
  * Created by Student on 7/22/2015.
  */
 public class ReportActivity extends ActionBarActivity {
-
+    protected Button streets, pothole, graffiti, other;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,42 +21,49 @@ public class ReportActivity extends ActionBarActivity {
         setContentView(R.layout.report_res);
 
         // Get our buttons from the layout resource, the axml
-        // Each button declaration followed by its own onclicklistener to tell it what to do
-        Button streets = (Button) findViewById(R.id.streets);
+        // Each button declaration followed by its own onclicklistener in onResume
+        // to tell it what to do
+        streets = (Button) findViewById(R.id.streets);
+        pothole = (Button) findViewById(R.id.pothole);
+        graffiti = (Button) findViewById(R.id.graffiti);
+        other = (Button) findViewById(R.id.other);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         streets.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action specified in ReportFormActivity
-                //ReportFormActivity.ProblemTypePosition = 1;
+                ReportFormActivity.setProblemTypePosition(1);
                 Intent i = new Intent(ReportActivity.this, ReportFormActivity.class);
                 startActivity(i);
             }
         });
 
-        Button pothole = (Button) findViewById(R.id.pothole);
         pothole.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click, take to website
-                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(
-                        "http://www.my.vdot.virginia.gov/"));
+                String url = "http://www.my.vdot.virginia.gov/";
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(i);
             }
         });
 
-        Button graffiti = (Button) findViewById(R.id.graffiti);
         graffiti.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action specified in ReportFormActivity
-                //ReportFormActivity.ProblemTypePosition = 2;
+                ReportFormActivity.setProblemTypePosition(2);
                 Intent i = new Intent(ReportActivity.this, ReportFormActivity.class);
                 startActivity(i);
             }
         });
 
-        Button other = (Button) findViewById(R.id.other);
         other.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action specified in ReportFormActivity
-                //ReportFormActivity.ProblemTypePosition = 0;
+                ReportFormActivity.setProblemTypePosition(0);
                 Intent i = new Intent(ReportActivity.this, ReportFormActivity.class);
                 startActivity(i);
             }

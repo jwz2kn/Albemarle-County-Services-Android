@@ -24,6 +24,10 @@
             android:name=".ContactActivity"
             android:label="Contact Us" >
         </activity>
+        <activity
+            android:name=".ReportFormActivity"
+            android:label="Complaints and Concerns" >
+        </activity>
     </application>
 
 </manifest>

@@ -18,17 +18,17 @@
         android:layout_margin="25dp"
         android:id="@+id/zoning" />
     <Button
-        android:text="Native Plants Of Albemarle"
+        android:text="Non-Emergency Law Enforcement Questions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/zoning"
         android:layout_margin="25dp"
-        android:id="@+id/plants" />
+        android:id="@+id/law" />
     <Button
         android:text="Certificate Information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/plants"
+        android:layout_below="@id/law"
         android:layout_margin="25dp"
         android:id="@+id/certificate" />
     <Button
