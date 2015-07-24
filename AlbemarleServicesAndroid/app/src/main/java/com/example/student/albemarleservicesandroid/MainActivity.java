@@ -54,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
                 ReportFormActivity.setProblemTypePosition(3);
                 Intent j = new Intent(MainActivity.this, ReportFormActivity.class);
                 startActivity(i);
-                //startActivity(j);
+                startActivity(j);
             }
         });
 

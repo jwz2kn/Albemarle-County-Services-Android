@@ -45,7 +45,7 @@ public class ReportActivity extends ActionBarActivity {
         pothole.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click, take to website
-                String url = "http://www.my.vdot.virginia.gov/";
+                String url = "https://my.vdot.virginia.gov/";
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(i);
             }
