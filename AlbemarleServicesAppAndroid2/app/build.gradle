@@ -5,8 +5,8 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "org.albemarle.student.org.albemarle.student.albemarleservicesandroid"
-        minSdkVersion 19
+        applicationId "org.itintern2albemarle.albemarleservicesappandroid"
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"

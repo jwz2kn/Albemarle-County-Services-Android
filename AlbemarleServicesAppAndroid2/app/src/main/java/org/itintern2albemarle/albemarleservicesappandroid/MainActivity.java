@@ -1,19 +1,11 @@
-package org.albemarle.student.albemarleservicesandroid;
+package org.itintern2albemarle.albemarleservicesappandroid;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
-
-import org.albemarle.student.albemarleservicesandroid.ReportActivity;
-import org.albemarle.student.albemarleservicesandroid.ReportFormActivity;
-
-import org.albemarle.student.albemarleservicesandroid.ContactActivity;
-import org.albemarle.student.albemarleservicesandroid.R;
 
 /*
 Converting c# version of the Albemarle Services app to java.

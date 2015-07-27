@@ -1,7 +1,5 @@
-package org.albemarle.student.albemarleservicesandroid;
+package org.itintern2albemarle.albemarleservicesappandroid;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,13 +7,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 
-import org.albemarle.student.albemarleservicesandroid.ReportFormActivity;
-
-import org.albemarle.student.albemarleservicesandroid.R;
-
-/**
- * Created by Student on 7/22/2015.
- */
 public class ReportActivity extends ActionBarActivity {
     protected Button streets, pothole, graffiti, other;
     @Override

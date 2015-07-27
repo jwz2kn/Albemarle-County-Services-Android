@@ -1,37 +1,23 @@
-package org.albemarle.student.albemarleservicesandroid;
+package org.itintern2albemarle.albemarleservicesappandroid;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Interpolator;
-import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.app.Activity;
-import android.database.Cursor;
 
-import org.albemarle.student.albemarleservicesandroid.R;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-
-
-/**
- * Created by Student on 7/22/2015.
- */
 public class ReportFormActivity extends ActionBarActivity {
 
     private static int SELECT_PICTURE = 1;
@@ -102,7 +88,7 @@ public class ReportFormActivity extends ActionBarActivity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         probType.setAdapter(adapter);
-        probType.setOnItemSelectedListener(new OnItemSelectedListener()
+        probType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)

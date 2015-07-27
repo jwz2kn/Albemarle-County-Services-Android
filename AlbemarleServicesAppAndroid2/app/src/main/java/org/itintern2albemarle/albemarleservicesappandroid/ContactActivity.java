@@ -1,4 +1,4 @@
-package org.albemarle.student.albemarleservicesandroid;
+package org.itintern2albemarle.albemarleservicesappandroid;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -7,13 +7,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import org.albemarle.student.albemarleservicesandroid.R;
-import org.w3c.dom.Text;
 
-/**
- * Created by Student on 7/22/2015.
- */
-public class ContactActivity extends ActionBarActivity{
+public class ContactActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,3 +36,4 @@ public class ContactActivity extends ActionBarActivity{
 
     }
 }
+
