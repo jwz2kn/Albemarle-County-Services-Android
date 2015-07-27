@@ -104,6 +104,9 @@
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
             android:id="@+id/photoTitle" />
+
+        <!-- android:layout_width="fill_parent"
+            android:layout_height="fill_parent" -->
         <ImageView
             android:src="@android:drawable/ic_menu_gallery"
             android:layout_width="fill_parent"

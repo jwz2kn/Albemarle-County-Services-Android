@@ -32,7 +32,7 @@ import java.io.InputStream;
  */
 public class ReportFormActivity extends ActionBarActivity {
 
-    private static int PickImageId = 1;
+    private static int SELECT_PICTURE = 1;
     private String selectedImagePath;
     private static int ProblemTypePosition = 0;
     protected Spinner probType;
@@ -78,7 +78,7 @@ public class ReportFormActivity extends ActionBarActivity {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PickImageId);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
             }
 
         });
@@ -209,35 +209,52 @@ public class ReportFormActivity extends ActionBarActivity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PickImageId && resultCode == Activity.RESULT_OK ) {
-            /*
-            next line lets the image show up in the email format
-             */
-            uri = data.getData();
-            uploadedImg.setImageURI(uri);
-//            selectedImagePath = getPath(selectedImageUri);
-//            System.out.println("Image Path: " + selectedImagePath);
- //           uploadedImg.setImageURI(selectedImageUri);
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent imageReturnedIntent) {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
 
-            //uploadedImg.setImageBitmap(thumbnail);
-//            uploadedImg.setImageURI(null);
-            //String path = GetPathToImage (uri);
-            //Toast.makeText (this, path, Toast.LENGTH_LONG).show();
+        if (requestCode == SELECT_PICTURE && resultCode == Activity.RESULT_OK) {
 
+            uri = imageReturnedIntent.getData();
+            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+            Cursor cursor = getApplicationContext().getContentResolver().query(
+                    uri, filePathColumn, null, null, null);
+            cursor.moveToFirst();
+
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String filePath = cursor.getString(columnIndex);
+            cursor.close();
+
+            BitmapFactory.Options o = new BitmapFactory.Options();
+            o.inJustDecodeBounds = true;
+            final int REQUIRED_SIZE = 140;
+
+            // Find the correct scale value. It should be the power of 2.
+            int width_tmp = o.outWidth, height_tmp = o.outHeight;
+            int scale = 1;
+            while (true) {
+                if (width_tmp / 2 < REQUIRED_SIZE
+                        || height_tmp / 2 < REQUIRED_SIZE) {
+                    break;
+                }
+                width_tmp /= 2;
+                height_tmp /= 2;
+                scale *= 2;
+            }
+
+            // Decode with inSampleSize
+            BitmapFactory.Options o2 = new BitmapFactory.Options();
+            o2.inSampleSize = scale;
+
+            Bitmap yourSelectedImage = BitmapFactory.decodeFile(filePath, o2);
+            while (yourSelectedImage.getHeight() > 4096 || yourSelectedImage.getWidth() > 4096) {
+                yourSelectedImage = Bitmap.createScaledBitmap(yourSelectedImage,
+                        yourSelectedImage.getWidth()/2, yourSelectedImage.getHeight()/2, true);
+            }
+            uploadedImg.setImageBitmap(null);
+            uploadedImg.setImageBitmap(yourSelectedImage);
+            //uploadedImg.setImageURI(uri);
         }
-    }
-
-    public String getPath(Uri uri) {
-        String res = null;
-        String[] projection = { MediaStore.Images.Media.DATA };
-        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
-        if(cursor.moveToFirst()) {
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            res = cursor.getString(column_index);
-        }
-        cursor.close();
-        return res;
     }
 }
