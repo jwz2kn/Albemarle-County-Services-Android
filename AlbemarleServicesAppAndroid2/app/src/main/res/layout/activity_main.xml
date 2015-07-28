@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    >
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:actionBarStyle = "@style/AppTheme.ActionBarStyle">
         <Button
             android:text="Complaints and Concerns"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_margin="25dp"
-            android:id="@+id/report" />
+            android:id="@+id/report"
+            android:textColor="#FFFFFF"
+            android:background="#14477f" />
         <Button
             android:text="Zoning Projects"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/report"
             android:layout_margin="25dp"
-            android:id="@+id/zoning" />
+            android:id="@+id/zoning"
+            android:textColor="#FFFFFF"
+            android:background="#14477f"/>
         <Button
             android:text="Non-Emergency Law Enforcement Questions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/zoning"
             android:layout_margin="25dp"
-            android:id="@+id/law" />
+            android:id="@+id/law"
+            android:textColor="#FFFFFF"
+            android:background="#14477f"/>
         <Button
             android:text="Certificate Information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/law"
             android:layout_margin="25dp"
-            android:id="@+id/certificate" />
+            android:id="@+id/certificate"
+            android:textColor="#FFFFFF"
+            android:background="#14477f"/>
         <Button
             android:text="Contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/certificate"
             android:layout_margin="25dp"
-            android:id="@+id/contact" />
+            android:id="@+id/contact"
+            android:textColor="#FFFFFF"
+            android:background="#14477f" />
     </RelativeLayout>
 </ScrollView>

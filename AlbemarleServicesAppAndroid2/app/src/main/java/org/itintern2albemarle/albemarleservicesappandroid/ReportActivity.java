@@ -1,6 +1,10 @@
 package org.itintern2albemarle.albemarleservicesappandroid;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -14,7 +18,7 @@ public class ReportActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         // Set our view from the "report" layout resource
         setContentView(R.layout.report_res);
-
+        setTopBar();
         // Get our buttons from the layout resource, the axml
         // Each button declaration followed by its own onclicklistener in onResume
         // to tell it what to do
@@ -63,5 +67,17 @@ public class ReportActivity extends ActionBarActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void setTopBar(){
+        Bitmap barBackground = BitmapFactory.decodeResource(getResources(), R.drawable.albemarleviewlong2);
+        BitmapDrawable actionBarBackground = new BitmapDrawable(getResources(), barBackground);
+        Bitmap barLogo = BitmapFactory.decodeResource(getResources(), R.drawable.albemarlecounty);
+        BitmapDrawable actionBarLogo = new BitmapDrawable(getResources(), barLogo);
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(actionBarBackground);
+        bar.setIcon(actionBarLogo);
+        bar.setDisplayUseLogoEnabled(true);
+        bar.setDisplayShowHomeEnabled(false);
     }
 }

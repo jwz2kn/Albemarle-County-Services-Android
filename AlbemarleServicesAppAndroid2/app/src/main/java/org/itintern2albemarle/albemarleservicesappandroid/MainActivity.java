@@ -1,8 +1,14 @@
 package org.itintern2albemarle.albemarleservicesappandroid;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+//import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        setTopBar();
         // Get our buttons from the layout resource, the axml, in which we set their Android layout IDs
         // Each button declaration followed by its own onclicklistener to tell it what to do
         report = (Button) findViewById(R.id.report);
@@ -96,4 +102,16 @@ public class MainActivity extends ActionBarActivity {
 //
 //        return super.onOptionsItemSelected(item);
 //    }
+
+    private void setTopBar(){
+        Bitmap barBackground = BitmapFactory.decodeResource(getResources(), R.drawable.albemarleviewlong2);
+        BitmapDrawable actionBarBackground = new BitmapDrawable(getResources(), barBackground);
+        Bitmap barLogo = BitmapFactory.decodeResource(getResources(), R.drawable.albemarlecounty);
+        BitmapDrawable actionBarLogo = new BitmapDrawable(getResources(), barLogo);
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(actionBarBackground);
+        bar.setIcon(actionBarLogo);
+        bar.setDisplayUseLogoEnabled(false);
+        bar.setDisplayShowHomeEnabled(false);
+    }
 }

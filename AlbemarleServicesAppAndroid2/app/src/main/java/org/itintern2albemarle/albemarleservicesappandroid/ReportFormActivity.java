@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -30,11 +31,23 @@ public class ReportFormActivity extends ActionBarActivity {
     private String probTypeText = "", recipientEmailAddress = "", formatEmailBody = "";
     private Uri uri = null;
 
+    private void setTopBar(){
+        Bitmap barBackground = BitmapFactory.decodeResource(getResources(), R.drawable.albemarleviewlong2);
+        BitmapDrawable actionBarBackground = new BitmapDrawable(getResources(), barBackground);
+        Bitmap barLogo = BitmapFactory.decodeResource(getResources(), R.drawable.albemarlecounty);
+        BitmapDrawable actionBarLogo = new BitmapDrawable(getResources(), barLogo);
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(actionBarBackground);
+        bar.setIcon(actionBarLogo);
+        bar.setDisplayUseLogoEnabled(true);
+        bar.setDisplayShowHomeEnabled(false);
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Set our view from the "report" layout resource
         setContentView(R.layout.report_form_res);
-
+        setTopBar();
         // initializes a drop down menu that can be edited
         //Look in the Resources, Values, then Strings.xml for specific info
         //on what the selection types are for the dropdown menu

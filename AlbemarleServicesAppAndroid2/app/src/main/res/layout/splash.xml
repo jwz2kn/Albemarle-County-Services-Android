@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="fill_parent"
-    android:background="@drawable/albemarleview"
+    android:background="@drawable/albemarleviewtall7"
     android:layout_height="fill_parent">
     <ImageView
         android:id="@+id/splash"
@@ -19,6 +19,8 @@
         android:textAlignment="center"
         android:textSize = "25dp"
         android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowRadius="20.0"
         android:textColor = "#ffffffff"
         android:id="@+id/ACSSplashTitle"
         android:layout_below="@+id/splash"
