@@ -47,6 +47,9 @@ public class MainActivity extends ActionBarActivity {
         zoning.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
+                String url = "http://www.albemarle.org/department.asp?department=cdd&relpage=2778";
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(i);
             }
         });
 

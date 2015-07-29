@@ -6,22 +6,7 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-        <!-- This is the field for the type of problem user encounters -->
-        <!--    <TextView
-                android:text="Type Of Problem"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/probTypeTitle" /> -->
-        <!--    <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:maxLength="50"
-                android:singleLine="true"
-                android:imeOptions="actionNext"
-                android:id="@+id/probTypeField"
-                android:hint="Enter a problem here..." /> -->
+
         <!-- Look in the Resources, Values, then Strings.xml for specific info
                 on what the selection types are for the dropdown menu -->
         <TextView
@@ -103,7 +88,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
-            android:id="@+id/photoTitle" />
+            android:id="@+id/photoTitle"
+            android:textColor="#FFFFFF"
+            android:background="#14477f"/>
 
         <!-- android:layout_width="fill_parent"
             android:layout_height="fill_parent" -->
@@ -119,6 +106,8 @@
             android:text="Submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/submit" />
+            android:id="@+id/submit"
+            android:textColor="#FFFFFF"
+            android:background="#14477f"/>
     </LinearLayout>
 </ScrollView>

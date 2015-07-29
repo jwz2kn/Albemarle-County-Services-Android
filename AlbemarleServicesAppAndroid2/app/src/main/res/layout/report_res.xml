@@ -12,27 +12,35 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_margin="40dp"
-            android:id="@+id/streets" />
+            android:id="@+id/streets"
+            android:textColor="#FFFFFF"
+            android:background="#14477f"/>
         <Button
             android:text="Report Road Damages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/streets"
             android:layout_margin="40dp"
-            android:id="@+id/pothole" />
+            android:id="@+id/pothole"
+            android:textColor="#FFFFFF"
+            android:background="#14477f"/>
         <Button
             android:text="Report Graffiti"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/pothole"
             android:layout_margin="40dp"
-            android:id="@+id/graffiti" />
+            android:id="@+id/graffiti"
+            android:textColor="#FFFFFF"
+            android:background="#14477f"/>
         <Button
             android:text="Other Concerns"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/graffiti"
             android:layout_margin="40dp"
-            android:id="@+id/other" />
+            android:id="@+id/other"
+            android:textColor="#FFFFFF"
+            android:background="#14477f"/>
     </RelativeLayout>
 </ScrollView>
