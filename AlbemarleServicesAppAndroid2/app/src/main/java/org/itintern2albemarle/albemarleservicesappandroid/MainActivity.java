@@ -2,6 +2,7 @@ package org.itintern2albemarle.albemarleservicesappandroid;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -60,8 +61,13 @@ public class MainActivity extends ActionBarActivity {
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 ReportFormActivity.setProblemTypePosition(3);
                 Intent j = new Intent(MainActivity.this, ReportFormActivity.class);
-                startActivity(i);
-                startActivity(j);
+                //startActivity(i);
+                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                alert.setTitle("Doctor");
+                alert.setMessage("message");
+                alert.setPositiveButton("OK", null);
+                alert.show();
+                //startActivity(j);
             }
         });
 

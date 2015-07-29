@@ -1,6 +1,7 @@
 package org.itintern2albemarle.albemarleservicesappandroid;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
