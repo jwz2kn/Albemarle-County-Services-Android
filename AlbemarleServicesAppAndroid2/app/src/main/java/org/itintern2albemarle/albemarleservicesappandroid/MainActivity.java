@@ -72,9 +72,9 @@ public class MainActivity extends ActionBarActivity {
                         String url = "https://www.albemarle.org/policeonlinereporting/";
                         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                         startActivity(i);
+                        dialog.cancel();
                         Intent j = new Intent(MainActivity.this, ReportFormActivity.class);
                         startActivity(j);
-                        dialog.cancel();
                     }
                 });
                 alert.setNegativeButton("DON'T VISIT SITE", new DialogInterface.OnClickListener() {

@@ -118,7 +118,8 @@ public class ReportFormActivity extends ActionBarActivity {
                     alert.setMessage("Please visit the online police reporting site for more information" +
                             " about reporting graffiti in Albemarle County. ");
                     alert.show();
-                } else if (probTypeText.equals("Non-Emergency Law Enforcement Questions")) {
+                } else if (probTypeText.equals("Non-Emergency Law Enforcement Questions") ||
+                        getProblemTypePosition() == 3) {
                     alert.setMessage("Please use this application for non-emergency situations only. \n" +
                             "If you have an emergency, call 911 immediately for assistance. \n"+
                             "If you are unsure whether your situation is an emergency, " +
