@@ -93,24 +93,10 @@ public class ReportFormActivity extends ActionBarActivity {
                 // Perform action on click
                 // this takes the place of the SubmitOnClick method in Xamarin
                 //sendEmail(formatEmailBody);
-                sendEmail("jwz2kn@virginia.edu");
 
                 alert = new AlertDialog.Builder(ReportFormActivity.this);
                 alert.setCancelable(true);
                 alert.setTitle("Albemarle County Services");
-
-                if (probTypeText.equals("Graffiti")) {
-                    alert.setMessage("Please visit the online police reporting site for more information" +
-                            " about reporting graffiti in Albemarle County. ");
-                }
-
-                if (probTypeText.equals("Non-Emergency Law Enforcement Questions")) {
-                    alert.setMessage("Please use this application for non-emergency situations only. \n" +
-                            "If you have an emergency, call 911 immediately for assistance. \n"+
-                            "If you are unsure whether your situation is an emergency, " +
-                            "please visit the online police reporting site for more information. ");
-                }
-
                 alert.setPositiveButton("VISIT SITE NOW", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -123,11 +109,24 @@ public class ReportFormActivity extends ActionBarActivity {
                 alert.setNegativeButton("DON'T VISIT SITE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        sendEmail("jwz2kn@virginia.edu");
                         dialog.cancel();
                     }
                 });
-                alert.show();
 
+                if (probTypeText.equals("Graffiti")) {
+                    alert.setMessage("Please visit the online police reporting site for more information" +
+                            " about reporting graffiti in Albemarle County. ");
+                    alert.show();
+                } else if (probTypeText.equals("Non-Emergency Law Enforcement Questions")) {
+                    alert.setMessage("Please use this application for non-emergency situations only. \n" +
+                            "If you have an emergency, call 911 immediately for assistance. \n"+
+                            "If you are unsure whether your situation is an emergency, " +
+                            "please visit the online police reporting site for more information. ");
+                    alert.show();
+                } else {
+                    sendEmail("jwz2kn@virginia.edu");
+                }
             }
         });
 
