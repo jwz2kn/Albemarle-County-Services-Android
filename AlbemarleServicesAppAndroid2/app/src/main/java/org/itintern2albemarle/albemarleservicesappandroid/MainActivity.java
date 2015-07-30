@@ -73,8 +73,19 @@ public class MainActivity extends ActionBarActivity {
                         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                         startActivity(i);
                         dialog.cancel();
-                        Intent j = new Intent(MainActivity.this, ReportFormActivity.class);
-                        startActivity(j);
+                        new Thread(new Runnable() {
+                            public void run() {
+                                try {
+                                    Thread.sleep(4000);
+                                    Intent j = new Intent(MainActivity.this, ReportFormActivity.class);
+                                    startActivity(j);
+                                } catch (Exception ex) {
+                                    
+                                }
+
+                            }
+                        }).start();
+
                     }
                 });
                 alert.setNegativeButton("DON'T VISIT SITE", new DialogInterface.OnClickListener() {
