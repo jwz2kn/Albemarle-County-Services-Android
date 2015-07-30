@@ -77,15 +77,15 @@ public class MainActivity extends ActionBarActivity {
                             public void run() {
                                 try {
                                     Thread.sleep(4000);
-                                    Intent j = new Intent(MainActivity.this, ReportFormActivity.class);
+                                    Intent j = new Intent(MainActivity.this,
+                                            ReportFormActivity.class);
                                     startActivity(j);
                                 } catch (Exception ex) {
-                                    
+
                                 }
 
                             }
                         }).start();
-
                     }
                 });
                 alert.setNegativeButton("DON'T VISIT SITE", new DialogInterface.OnClickListener() {
