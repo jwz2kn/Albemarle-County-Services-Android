@@ -126,7 +126,7 @@ public class ReportFormActivity extends ActionBarActivity {
                         dialog.cancel();
                     }
                 });
-
+                alert.show();
 
             }
         });
@@ -233,12 +233,16 @@ public class ReportFormActivity extends ActionBarActivity {
             email.setType("message/rfc822");
             startActivity(email);
         } catch (Exception ex) {
-            Toast.makeText(ReportFormActivity.this, "Email error, please see Contact for help.",
+            Toast.makeText(ReportFormActivity.this, "Email error. " +
+                            "\nMake sure you have an email sending application " +
+                            "installed on your device. " +
+                            "\nPlease see Contact for help.",
                     Toast.LENGTH_LONG).show();
         }
 
         if (probTypeText.equals("Voter Information")) {
-            String url = "http://www.albemarle.org/department.asp?department=registrar&relpage=2934";
+            String url = "http://" +
+                    "www.albemarle.org/department.asp?department=registrar&relpage=2934";
             Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(i);
         }
