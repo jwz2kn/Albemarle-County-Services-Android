@@ -2,6 +2,7 @@ package org.itintern2albemarle.albemarleservicesappandroid;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -31,6 +32,7 @@ public class ReportFormActivity extends ActionBarActivity {
     protected Button upload, submit;
     private String probTypeText = "", recipientEmailAddress = "", formatEmailBody = "";
     private Uri uri = null;
+    private AlertDialog.Builder alert;
 
     private void setTopBar(){
         Bitmap barBackground = BitmapFactory.decodeResource(getResources(), R.drawable.albemarleviewlong2);
@@ -92,6 +94,40 @@ public class ReportFormActivity extends ActionBarActivity {
                 // this takes the place of the SubmitOnClick method in Xamarin
                 //sendEmail(formatEmailBody);
                 sendEmail("jwz2kn@virginia.edu");
+
+                alert = new AlertDialog.Builder(ReportFormActivity.this);
+                alert.setCancelable(true);
+                alert.setTitle("Albemarle County Services");
+
+                if (probTypeText.equals("Graffiti")) {
+                    alert.setMessage("Please visit the online police reporting site for more information" +
+                            " about reporting graffiti in Albemarle County. ");
+                }
+
+                if (probTypeText.equals("Non-Emergency Law Enforcement Questions")) {
+                    alert.setMessage("Please use this application for non-emergency situations only. \n" +
+                            "If you have an emergency, call 911 immediately for assistance. \n"+
+                            "If you are unsure whether your situation is an emergency, " +
+                            "please visit the online police reporting site for more information. ");
+                }
+
+                alert.setPositiveButton("VISIT SITE NOW", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String url = "https://www.albemarle.org/policeonlinereporting/";
+                        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(i);
+                        dialog.cancel();
+                    }
+                });
+                alert.setNegativeButton("DON'T VISIT SITE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+
             }
         });
 
@@ -171,7 +207,7 @@ public class ReportFormActivity extends ActionBarActivity {
     }
 
     private void sendEmail(String emailAddress) {
-        Intent email = new Intent (Intent.ACTION_SEND);
+        Intent email = new Intent (android.content.Intent.ACTION_SEND);
         try
         {
             email.putExtra(Intent.EXTRA_EMAIL, new String[]{emailAddress});
@@ -192,17 +228,16 @@ public class ReportFormActivity extends ActionBarActivity {
             return;
         }
 
-        email.setType("message/rfc822");
-        startActivity(email);
-
-        if (probTypeText.equals("Non-Emergency Law Enforcement Questions") ||
-                probTypeText.equals("Graffiti")) {
-            String url = "https://www.albemarle.org/policeonlinereporting/";
-            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            startActivity(i);
+        //send email
+        try {
+            email.setType("message/rfc822");
+            startActivity(email);
+        } catch (Exception ex) {
+            Toast.makeText(ReportFormActivity.this, "Email error, please see Contact for help.",
+                    Toast.LENGTH_LONG).show();
         }
 
-        if (probTypeText == "Voter Information") {
+        if (probTypeText.equals("Voter Information")) {
             String url = "http://www.albemarle.org/department.asp?department=registrar&relpage=2934";
             Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(i);
