@@ -62,7 +62,8 @@ public class MainActivity extends ActionBarActivity {
                 AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
                 alert.setCancelable(true);
                 alert.setTitle("Albemarle County Services");
-                alert.setMessage("Please use this application for non-emergency situations only. \n" +
+                alert.setMessage("Please use this application for non-emergency " +
+                        "law enforcement questions only. \n" +
                         "If you have an emergency, call 911 immediately for assistance. \n"+
                         "If you are unsure whether your situation is an emergency, " +
                         "please visit the online police reporting site for more information. ");

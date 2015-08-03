@@ -114,13 +114,14 @@ public class ReportFormActivity extends ActionBarActivity {
                     }
                 });
 
-                if (probTypeText.equals("Graffiti")) {
+                if (probTypeText.equals("Graffiti") || getProblemTypePosition() == 2) {
                     alert.setMessage("Please visit the online police reporting site for more information" +
                             " about reporting graffiti in Albemarle County. ");
                     alert.show();
                 } else if (probTypeText.equals("Non-Emergency Law Enforcement Questions") ||
                         getProblemTypePosition() == 3) {
-                    alert.setMessage("Please use this application for non-emergency situations only. \n" +
+                    alert.setMessage("Please use this application for non-emergency " +
+                            "law enforcement questions only. \n" +
                             "If you have an emergency, call 911 immediately for assistance. \n"+
                             "If you are unsure whether your situation is an emergency, " +
                             "please visit the online police reporting site for more information. ");

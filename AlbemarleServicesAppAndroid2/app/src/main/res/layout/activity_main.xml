@@ -36,7 +36,7 @@
             android:textColor="#FFFFFF"
             android:background="#14477f"/>
         <Button
-            android:text="Certificate Information"
+            android:text="Vital Records and Certificates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/law"
@@ -45,7 +45,7 @@
             android:textColor="#FFFFFF"
             android:background="#14477f"/>
         <Button
-            android:text="Contact"
+            android:text="Contact Us"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/certificate"

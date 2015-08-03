@@ -38,5 +38,11 @@
             android:layout_margin="5dp"
             android:textColor="@android:color/holo_blue_bright"
             android:id="@+id/contactinfo5" />
+        <TextView
+            android:text="Or Email Us At [insert email here]"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/contactinfo6" />
     </LinearLayout>
 </ScrollView>
