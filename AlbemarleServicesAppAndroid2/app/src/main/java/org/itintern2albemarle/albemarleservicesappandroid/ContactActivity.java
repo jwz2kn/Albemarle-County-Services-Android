@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 public class ContactActivity extends ActionBarActivity {
     private TextView contact5;
+    private TextView about;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,7 @@ public class ContactActivity extends ActionBarActivity {
 //        TextView contact3 = (TextView) findViewById(R.id.contactinfo3);
 //        TextView contact4 = (TextView) findViewById(R.id.contactinfo4);
         contact5 = (TextView) findViewById(R.id.contactinfo5);
-
+        about = (TextView) findViewById(R.id.about);
         // Make contact5 (the albemarle.org link) a clickable link
         contact5.setTextIsSelectable(true);
         contact5.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +35,16 @@ public class ContactActivity extends ActionBarActivity {
                 // Perform action on click, take to website
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(
                         "http://www.albemarle.org"));
+                startActivity(i);
+            }
+        });
+
+        about.setTextIsSelectable(true);
+        about.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click, take to website
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(
+                        "http://www.albemarle.org/page.asp?info=demog"));
                 startActivity(i);
             }
         });

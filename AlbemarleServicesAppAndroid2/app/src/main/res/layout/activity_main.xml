@@ -53,5 +53,15 @@
             android:id="@+id/contact"
             android:textColor="#FFFFFF"
             android:background="#14477f" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize = "8sp"
+            android:text="Copyright © 1995-2015, County of Albemarle, VA and its licensors. All rights reserved."
+            android:id="@+id/legalText"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 </ScrollView>

@@ -110,25 +110,45 @@ public class ReportFormActivity extends ActionBarActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         sendEmail("jwz2kn@virginia.edu");
+                        //sendEmail(formatEmailBody);
                         dialog.cancel();
                     }
                 });
 
-                if (probTypeText.equals("Graffiti") || getProblemTypePosition() == 2) {
-                    alert.setMessage("Please visit the online police reporting site for more information" +
-                            " about reporting graffiti in Albemarle County. ");
-                    alert.show();
-                } else if (probTypeText.equals("Non-Emergency Law Enforcement Questions") ||
-                        getProblemTypePosition() == 3) {
-                    alert.setMessage("Please use this application for non-emergency " +
-                            "law enforcement questions only. \n" +
-                            "If you have an emergency, call 911 immediately for assistance. \n"+
-                            "If you are unsure whether your situation is an emergency, " +
-                            "please visit the online police reporting site for more information. ");
+                if(userPhoneNumber.getText().toString().matches("") ||
+                        userEmailAddress.getText().toString().matches("") ||
+                        probDesc.getText().toString().matches("")){
+                    alert = new AlertDialog.Builder(ReportFormActivity.this);
+                    alert.setCancelable(true);
+                    alert.setTitle("Missing Information");
+                    alert.setMessage("Please enter your email address, phone number, and a description" +
+                            " of the problem.");
+                    alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
                     alert.show();
                 } else {
-                    sendEmail("jwz2kn@virginia.edu");
+                    if (probTypeText.equals("Graffiti") || getProblemTypePosition() == 2) {
+                        alert.setMessage("Please visit the online police reporting site for more information" +
+                                " about reporting graffiti in Albemarle County. ");
+                        alert.show();
+                    } else if (probTypeText.equals("Non-Emergency Law Enforcement Questions") ||
+                            getProblemTypePosition() == 3) {
+                        alert.setMessage("Please use this application for non-emergency " +
+                                "law enforcement questions only. \n" +
+                                "If you have an emergency, call 911 immediately for assistance. \n"+
+                                "If you are unsure whether your situation is an emergency, " +
+                                "please visit the online police reporting site for more information. ");
+                        alert.show();
+                    } else {
+                        sendEmail("jwz2kn@virginia.edu");
+                        //sendEmail(formatEmailBody);
+                    }
                 }
+
             }
         });
 
@@ -237,7 +257,7 @@ public class ReportFormActivity extends ActionBarActivity {
             Toast.makeText(ReportFormActivity.this, "Email error. " +
                             "\nMake sure you have an email sending application " +
                             "installed on your device. " +
-                            "\nPlease see Contact for help.",
+                            "\nPlease see Contact Us for help.",
                     Toast.LENGTH_LONG).show();
         }
 
