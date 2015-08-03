@@ -106,7 +106,7 @@ public class ReportFormActivity extends ActionBarActivity {
                         dialog.cancel();
                     }
                 });
-                alert.setNegativeButton("DON'T VISIT SITE", new DialogInterface.OnClickListener() {
+                alert.setNegativeButton("I Understand", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         sendEmail("jwz2kn@virginia.edu");
@@ -132,16 +132,18 @@ public class ReportFormActivity extends ActionBarActivity {
                     alert.show();
                 } else {
                     if (probTypeText.equals("Graffiti") || getProblemTypePosition() == 2) {
-                        alert.setMessage("Please visit the online police reporting site for more information" +
-                                " about reporting graffiti in Albemarle County. ");
+                        alert.setMessage("Since graffiti and vandalism fall under the jurisdiction of the police department " +
+                                "be aware that your report will be sent to the police. \n" +
+                                "For more information on which issues fall under police jurisdiction, please visit the website."
+                        );
                         alert.show();
                     } else if (probTypeText.equals("Non-Emergency Law Enforcement Questions") ||
                             getProblemTypePosition() == 3) {
-                        alert.setMessage("Please use this application for non-emergency " +
-                                "law enforcement questions only. \n" +
-                                "If you have an emergency, call 911 immediately for assistance. \n"+
-                                "If you are unsure whether your situation is an emergency, " +
-                                "please visit the online police reporting site for more information. ");
+                        alert.setMessage(
+                                "By clicking 'I UNDERSTAND' you agree that your law enforcement related complaint/concern is classified " +
+                                "as a non-emergency and is not covered by the current online reporting system " +
+                                "according to the police reporting site."
+                        );
                         alert.show();
                     } else {
                         sendEmail("jwz2kn@virginia.edu");

@@ -62,32 +62,34 @@ public class MainActivity extends ActionBarActivity {
                 ReportFormActivity.setProblemTypePosition(3);
                 AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
                 alert.setCancelable(true);
-                alert.setTitle("Albemarle County Services");
-                alert.setMessage("Please use this application for non-emergency " +
-                        "law enforcement questions only. \n" +
-                        "If you have an emergency, call 911 immediately for assistance. \n"+
-                        "If you are unsure whether your situation is an emergency, " +
-                        "please visit the online police reporting site for more information. ");
+                alert.setTitle("ACoS Law Enforcement Questions");
+                alert.setMessage(
+                        "Please visit the online police reporting site to ensure " +
+                        "your question is both non-emergency and not covered by the current online reporting system. \n\n" +
+                        "Go back to this app to access the ACoS report form if still applicable."
+                );
                 alert.setPositiveButton("VISIT SITE NOW", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String url = "https://www.albemarle.org/policeonlinereporting/";
                         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        Intent j = new Intent(MainActivity.this, ReportFormActivity.class);
+                        startActivity(j);
                         startActivity(i);
                         dialog.cancel();
-                        new Thread(new Runnable() {
-                            public void run() {
-                                try {
-                                    Thread.sleep(4000);
-                                    Intent j = new Intent(MainActivity.this,
-                                            ReportFormActivity.class);
-                                    startActivity(j);
-                                } catch (Exception ex) {
-
-                                }
-
-                            }
-                        }).start();
+//                        new Thread(new Runnable() {
+//                            public void run() {
+//                                try {
+//                                    Thread.sleep(4000);
+//                                    Intent j = new Intent(MainActivity.this,
+//                                            ReportFormActivity.class);
+//                                    startActivity(j);
+//                                } catch (Exception ex) {
+//
+//                                }
+//
+//                            }
+//                        }).start();
                     }
                 });
                 alert.setNegativeButton("DON'T VISIT SITE", new DialogInterface.OnClickListener() {
