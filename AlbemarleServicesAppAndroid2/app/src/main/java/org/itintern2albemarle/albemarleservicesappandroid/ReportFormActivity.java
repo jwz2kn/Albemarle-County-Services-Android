@@ -12,6 +12,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -106,7 +108,7 @@ public class ReportFormActivity extends ActionBarActivity {
                         dialog.cancel();
                     }
                 });
-                alert.setNegativeButton("I Understand", new DialogInterface.OnClickListener() {
+                alert.setNegativeButton("I UNDERSTAND", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         sendEmail("jwz2kn@virginia.edu");
@@ -121,8 +123,8 @@ public class ReportFormActivity extends ActionBarActivity {
                     alert = new AlertDialog.Builder(ReportFormActivity.this);
                     alert.setCancelable(true);
                     alert.setTitle("Missing Information");
-                    alert.setMessage("Please enter your email address, phone number, and a description" +
-                            " of the problem.");
+                    alert.setMessage("Please enter your preferred email address, phone number, " +
+                            "and a description of the problem.");
                     alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -132,8 +134,8 @@ public class ReportFormActivity extends ActionBarActivity {
                     alert.show();
                 } else {
                     if (probTypeText.equals("Graffiti") || getProblemTypePosition() == 2) {
-                        alert.setMessage("Since graffiti and vandalism fall under the jurisdiction of the police department " +
-                                "be aware that your report will be sent to the police. \n" +
+                        alert.setMessage("Graffiti and vandalism fall under the jurisdiction of the police department. " +
+                                "Please be aware that your report will be sent to the police. \n" +
                                 "For more information on which issues fall under police jurisdiction, please visit the website."
                         );
                         alert.show();
@@ -161,14 +163,12 @@ public class ReportFormActivity extends ActionBarActivity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         probType.setAdapter(adapter);
-        probType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
+        probType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
-            {
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 probTypeText = parentView.getItemAtPosition(position).toString();
                 ProblemTypePosition = position;
-                switch(probTypeText) {
+                switch (probTypeText) {
                     case "Other":
                         recipientEmailAddress = "AskAlb@albemarle.org";
                         break;
@@ -191,14 +191,30 @@ public class ReportFormActivity extends ActionBarActivity {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parentView)
-            {
+            public void onNothingSelected(AdapterView<?> parentView) {
 
             }
         });
         probType.setSelection(ProblemTypePosition);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_home:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     public static int getProblemTypePosition() {
         return ProblemTypePosition;
