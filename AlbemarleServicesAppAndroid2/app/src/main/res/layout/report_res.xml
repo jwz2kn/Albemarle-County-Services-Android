@@ -2,6 +2,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+    <!-- Scroll View allows the layout to be scrolled/dragged without error -->
+    <!-- Relative Layout allows us to work with positioning fairly easily -->
+    <!-- Most of the variables should be self explanatory. Be careful about changing text/background
+    color. We chose that specific shade of blue because it's the Albemarle County blue. -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="fill_parent"

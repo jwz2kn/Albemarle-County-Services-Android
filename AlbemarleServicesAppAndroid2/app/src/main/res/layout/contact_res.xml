@@ -2,6 +2,11 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+
+    <!-- Scroll View allows the layout to be scrolled/dragged without error -->
+    <!-- Linear Layout allows us to have a set layout -->
+    <!-- Most of the variables should be self explanatory. Be careful about changing text
+    color. We chose that specific shade of blue because it's visible and the links appear bolded -->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="fill_parent"

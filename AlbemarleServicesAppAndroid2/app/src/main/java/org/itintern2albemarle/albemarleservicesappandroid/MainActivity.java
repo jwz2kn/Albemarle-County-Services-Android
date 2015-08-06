@@ -62,6 +62,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 // Perform action on click
                 ReportFormActivity.setProblemTypePosition(3);
+                // Sets the dialog box that pops up during certain conditions
                 AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
                 alert.setCancelable(true);
                 alert.setTitle("ACoS Law Enforcement Questions");
@@ -79,6 +80,8 @@ public class MainActivity extends ActionBarActivity {
                         startActivity(j);
                         startActivity(i);
                         dialog.cancel();
+                        //Below is an alternate method we tried for this in order to fix problematic
+                        //loading times on slower devices that caused an error.
 //                        new Thread(new Runnable() {
 //                            public void run() {
 //                                try {
@@ -139,6 +142,8 @@ public class MainActivity extends ActionBarActivity {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.action_home:
+                //In this case, since we're already on the main UI, we don't want the "home" button
+                //to actually have any functionality.
                 //startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 return true;
             default:
@@ -146,6 +151,8 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    // A bitmap method we used to set the background photo for the top bar. Note that we were
+    // not able to get a logo to show up next to the text.
     private void setTopBar(){
         Bitmap barBackground = BitmapFactory.decodeResource(getResources(), R.drawable.albemarleviewlong2);
         BitmapDrawable actionBarBackground = new BitmapDrawable(getResources(), barBackground);

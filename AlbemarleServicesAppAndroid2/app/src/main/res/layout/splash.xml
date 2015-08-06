@@ -3,6 +3,9 @@
     android:orientation="vertical" android:layout_width="fill_parent"
     android:background="@drawable/albemarleviewtall7"
     android:layout_height="fill_parent">
+    <!-- Relative Layout allows us to work with positioning fairly easily -->
+    <!-- Most of the variables should be self explanatory. Be careful about changing text/background
+    color. We chose those specific colors because they are easily visible. -->
     <ImageView
         android:id="@+id/splash"
         android:layout_width="fill_parent"

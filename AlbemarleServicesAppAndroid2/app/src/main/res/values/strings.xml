@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Add in the relevant strings and arrays you may need to access here -->
+    <!-- Note that order does matter in string arrays due to the way our code works -->
     <string name="hello">Hello World, Click Me!</string>
     <string name="app_name">Albemarle County Services</string>
     <string name="app_title">Albemarle County Services</string>

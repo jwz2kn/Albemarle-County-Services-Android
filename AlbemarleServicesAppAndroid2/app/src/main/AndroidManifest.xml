@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.itintern2albemarle.albemarleservicesappandroid" >
 
+    <!-- This file specifies some formatting of how the app is built using the different
+     .xmls and .java files. If there are big problems with certain activities not even loading,
+     you may want to come here and specify an activity in the application -->
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
 

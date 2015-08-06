@@ -1,6 +1,11 @@
+<!-- This .xml file specifies layout for the bar at the top of the app, and relevant buttons -->
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app = "http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/action_home" android:title="@string/action_home"
+    <!-- Make a "home" button's layout/id -->
+    <item
+        android:id="@+id/action_home"
+        android:title="@string/action_home"
         android:icon = "@drawable/homeicon2"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 </menu>

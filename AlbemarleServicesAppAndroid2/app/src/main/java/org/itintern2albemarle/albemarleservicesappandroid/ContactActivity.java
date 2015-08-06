@@ -23,7 +23,8 @@ public class ContactActivity extends ActionBarActivity {
         // Set our view from the "report" layout resource
         setContentView(R.layout.contact_res);
         setTopBar();
-        // Get the text specified in the xml
+        // Get the text specified in the xml. If you wanted to work with the other fields, this is
+        // how you would do it.
 //        TextView contact1 = (TextView) findViewById(R.id.contactinfo1);
 //        TextView contact2 = (TextView) findViewById(R.id.contactinfo2);
 //        TextView contact3 = (TextView) findViewById(R.id.contactinfo3);
@@ -61,7 +62,7 @@ public class ContactActivity extends ActionBarActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle presses on the action bar items
+        // Handle presses on the action bar items at top. Here, this takes you to main UI.
         switch (item.getItemId()) {
             case R.id.action_home:
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -71,6 +72,8 @@ public class ContactActivity extends ActionBarActivity {
         }
     }
 
+    // A bitmap method we used to set the background photo for the top bar. Note that we were
+    // not able to get a logo to show up next to the text.
     private void setTopBar(){
         Bitmap barBackground = BitmapFactory.decodeResource(getResources(), R.drawable.albemarleviewlong2);
         BitmapDrawable actionBarBackground = new BitmapDrawable(getResources(), barBackground);

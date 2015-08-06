@@ -36,7 +36,8 @@ public class ReportActivity extends ActionBarActivity {
 
         streets.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action specified in ReportFormActivity
+                // Perform action specified in ReportFormActivity, sets position of the drop down
+                // menu for problem type
                 ReportFormActivity.setProblemTypePosition(1);
                 Intent i = new Intent(ReportActivity.this, ReportFormActivity.class);
                 startActivity(i);
@@ -54,7 +55,8 @@ public class ReportActivity extends ActionBarActivity {
 
         graffiti.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action specified in ReportFormActivity
+                // Perform action specified in ReportFormActivity, sets position of the drop down
+                // menu for problem type
                 ReportFormActivity.setProblemTypePosition(2);
                 Intent i = new Intent(ReportActivity.this, ReportFormActivity.class);
                 startActivity(i);
@@ -63,7 +65,8 @@ public class ReportActivity extends ActionBarActivity {
 
         other.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action specified in ReportFormActivity
+                // Perform action specified in ReportFormActivity, sets position of the drop down
+                // menu for problem type
                 ReportFormActivity.setProblemTypePosition(0);
                 Intent i = new Intent(ReportActivity.this, ReportFormActivity.class);
                 startActivity(i);
@@ -79,7 +82,7 @@ public class ReportActivity extends ActionBarActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle presses on the action bar items
+        // Handle presses on the action bar items at top. Here, this takes you to main UI.
         switch (item.getItemId()) {
             case R.id.action_home:
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -88,6 +91,9 @@ public class ReportActivity extends ActionBarActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    // A bitmap method we used to set the background photo for the top bar. Note that we were
+    // not able to get a logo to show up next to the text.
     private void setTopBar(){
         Bitmap barBackground = BitmapFactory.decodeResource(getResources(), R.drawable.albemarleviewlong2);
         BitmapDrawable actionBarBackground = new BitmapDrawable(getResources(), barBackground);

@@ -36,6 +36,8 @@ public class ReportFormActivity extends ActionBarActivity {
     private Uri uri = null;
     private AlertDialog.Builder alert;
 
+    // A bitmap method we used to set the background photo for the top bar. Note that we were
+    // not able to get a logo to show up next to the text.
     private void setTopBar(){
         Bitmap barBackground = BitmapFactory.decodeResource(getResources(), R.drawable.albemarleviewlong2);
         BitmapDrawable actionBarBackground = new BitmapDrawable(getResources(), barBackground);
@@ -94,8 +96,8 @@ public class ReportFormActivity extends ActionBarActivity {
             public void onClick(View v) {
                 // Perform action on click
                 // this takes the place of the SubmitOnClick method in Xamarin
-                //sendEmail(formatEmailBody);
 
+                // Sets the dialog box that pops up during certain conditions
                 alert = new AlertDialog.Builder(ReportFormActivity.this);
                 alert.setCancelable(true);
                 alert.setTitle("Albemarle County Services");
@@ -112,7 +114,8 @@ public class ReportFormActivity extends ActionBarActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         sendEmail("jwz2kn@virginia.edu");
-                        //sendEmail(formatEmailBody);
+                        //Note that you would normally use sendEmail(recipientEmailAddress) to send
+                        // email to proper individuals. Here, you are using a test email.
                         dialog.cancel();
                     }
                 });
@@ -149,13 +152,16 @@ public class ReportFormActivity extends ActionBarActivity {
                         alert.show();
                     } else {
                         sendEmail("jwz2kn@virginia.edu");
-                        //sendEmail(formatEmailBody);
+                        //Note that you would normally use sendEmail(recipientEmailAddress) to send
+                        // email to proper individuals. Here, you are using a test email.
                     }
                 }
 
             }
         });
 
+
+        //Below code is for the drop down menu "Spinner" that selects type of problem user has
         String[] problem_array = getResources().getStringArray(R.array.problem_array);
         ArrayAdapter<String> adapter = new ArrayAdapter<String> (this,
                 android.R.layout.simple_spinner_dropdown_item,
@@ -168,6 +174,8 @@ public class ReportFormActivity extends ActionBarActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 probTypeText = parentView.getItemAtPosition(position).toString();
                 ProblemTypePosition = position;
+                //sets email address for which citizen reports are being sent.
+                //you may want to change the default email for testing purposes
                 switch (probTypeText) {
                     case "Other":
                         recipientEmailAddress = "AskAlb@albemarle.org";
@@ -206,7 +214,7 @@ public class ReportFormActivity extends ActionBarActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle presses on the action bar items
+        // Handle presses on the action bar items at top. Here, this takes you to main UI.
         switch (item.getItemId()) {
             case R.id.action_home:
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -216,6 +224,7 @@ public class ReportFormActivity extends ActionBarActivity {
         }
     }
 
+    //getters/setters for which problem type is selected from the drop down menu (Spinner)
     public static int getProblemTypePosition() {
         return ProblemTypePosition;
     }
@@ -224,6 +233,7 @@ public class ReportFormActivity extends ActionBarActivity {
         ProblemTypePosition = problemTypePosition;
     }
 
+    //formatting for the text in a sent email
     private String formatEmail(String value) {
         formatEmailBody = value;
         return formatEmailBody;
@@ -245,6 +255,7 @@ public class ReportFormActivity extends ActionBarActivity {
         return formatEmailBody;
     }
 
+    //sends email to appropriate individuals, with photo attached, with a few safeguards for errors
     private void sendEmail(String emailAddress) {
         Intent email = new Intent (android.content.Intent.ACTION_SEND);
         try
@@ -288,6 +299,7 @@ public class ReportFormActivity extends ActionBarActivity {
 
     }
 
+    //Handles uploading a photo to the app, and getting it to show up properly in the UI
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent imageReturnedIntent) {
