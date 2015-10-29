@@ -14,9 +14,9 @@ organization is as such:
       
 To view the most recent version of the source code, go to the App2 version.
 
-                                                                        John Zhang
-                                                                        Staff at Department of Information Technology
-                                                                        Albemarle County
-                                                                        jwz2kn@virginia.edu
-                                                                        jzhang@albemarle.org
+                                                                  John Zhang
+                                                                  Staff at Department of Information Technology
+                                                                  Albemarle County
+                                                                  jwz2kn@virginia.edu
+                                                                  jzhang@albemarle.org
                                                                         
